@@ -46,6 +46,17 @@
   .navbar {
     display: none;
   }
+
+  .navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+  }
+
+  .navbar .navbar-collapse {
+    text-align: center;
+  }
+
   .badge {
     border: 1px solid #000;
   }
