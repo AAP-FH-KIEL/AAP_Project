@@ -1,3 +1,3 @@
-module.exports.matches = function(req, res){
-res.render('index', { title: 'Matches' });
-};
+// module.exports.matches = function(req, res){
+// res.render('index', { title: 'Matches' });
+// };

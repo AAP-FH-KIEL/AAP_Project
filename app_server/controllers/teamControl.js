@@ -1,3 +1,3 @@
-module.exports.teams = function(req, res){
-    res.render('index', { title: 'Team Profile' });
-};
+// module.exports.teams = function(req, res){
+//     res.render('index', { title: 'Team Profile' });
+// };
