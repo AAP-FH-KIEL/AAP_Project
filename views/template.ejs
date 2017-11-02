@@ -69,9 +69,18 @@
         <li><a href="#">Comparison</a></li>
         <li><a href="#">Articles</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sign/Sign Up</a></li>
-      </ul>
+      <div>
+        <% if(!user){ %>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+            <li><a href="/signup"><span class="glyphicon glyphicon-sign-up"></span>Sign Up</a></li>
+          </ul>
+        <%} else{ %>
+          <div class="nav navbar-nav navbar-right">
+            <p>You're currently logged in as <%= user.username %>. Click <span><a href="/logout">here</a> to logout! </span></p>
+          </div>
+        <% } %>
+      </div>
     </div>
   </div>
 </nav>
