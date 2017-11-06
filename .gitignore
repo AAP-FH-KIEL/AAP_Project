@@ -1,6 +1,9 @@
-## See http://help.github.com/ignore-files/ for more about ignoring files.
- # dependencies
- /*node_modules
 
- # IDEs and editors
- /*.idea/workspace.xml
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+# dependencies
+node_modules
+*.log
+
+# IDEs and editors
+.idea
+>>>>>>> 90ad4f560e63f878af9f750263dd5d3856e0b1e0
