@@ -4,23 +4,25 @@
     "club" : "Real Madrid",
     "Country": "Portugal",
     "Age": "32",
-    "total appearance": "300",
+    "total appearance": "600",
     "goals" : "500",
     "description": "<p>Lorenzo was born in Mexico, but grew up in Southern California after his mother immigrated to Los Angeles when he was a year old. His mother worked as a seamstress in the Fashion District and brought home scrap materials for Lorenzo to create his early mixed media art. From that point on, Lorenzo became hooked on creating art from scrap metals, fabrics, wood, canvas, and many others. During his junior year at Bischon Art School in Los Angeles, he perfected his own proprietary method of painting on canvas with ceramic glaze, which he will demonstrate on Monday in his session, 'Art in Full Bloom'.</p><p>Lorenzo paints with an extraordinary amount of color, and prefers to create art centered around nature, animals, and science. Now in his senior year at Bischon, Lorenzo has been creating mixed media totem poles made from old telephone poles, and other recycled materials, and is already planning his next new technique that will likely inspire a trend for years to come.</p>",
     "Image": ["Lorenzo_Garcia_01_tn.jpg", "Lorenzo_Garcia_02_tn.jpg", "Lorenzo_Garcia_03_tn.jpg", "Lorenzo_Garcia_04_tn.jpg"]
   },
 
     {
+      "name" : "Lionel Messi",
       "club" : "Art in Full Bloom",
       "Country": "Lorenzo Garcia",
-      "Age": "Lorenzo Garcia",
-      "total appearance": "Lorenzo Garcia",
-      "goals" : "Lorenzo_Garcia",
+      "Age": "28",
+      "total appearance": "510",
+      "goals" : "Argentina",
       "description": "<p>Lorenzo was born in Mexico, but grew up in Southern California after his mother immigrated to Los Angeles when he was a year old. His mother worked as a seamstress in the Fashion District and brought home scrap materials for Lorenzo to create his early mixed media art. From that point on, Lorenzo became hooked on creating art from scrap metals, fabrics, wood, canvas, and many others. During his junior year at Bischon Art School in Los Angeles, he perfected his own proprietary method of painting on canvas with ceramic glaze, which he will demonstrate on Monday in his session, 'Art in Full Bloom'.</p><p>Lorenzo paints with an extraordinary amount of color, and prefers to create art centered around nature, animals, and science. Now in his senior year at Bischon, Lorenzo has been creating mixed media totem poles made from old telephone poles, and other recycled materials, and is already planning his next new technique that will likely inspire a trend for years to come.</p>",
       "Image": ["Lorenzo_Garcia_01_tn.jpg", "Lorenzo_Garcia_02_tn.jpg", "Lorenzo_Garcia_03_tn.jpg", "Lorenzo_Garcia_04_tn.jpg"]
     },
 
     {
+      "name" : "Lukaku Rumelo",
       "club" : "Art in Full Bloom",
       "Country": "Lorenzo Garcia",
       "Age": "Lorenzo Garcia",
