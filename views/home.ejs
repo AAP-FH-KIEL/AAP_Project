@@ -1,3 +1,40 @@
+<style>
+
+
+
+
+    .carousel-inner img {
+        width: 70%; /* Set width to 100% */
+        margin: auto;
+        min-height:200px;
+    }
+
+    /* Hide the carousel text when the screen is less than 600 pixels wide */
+    @media (max-width: 600px) {
+        .carousel-caption {
+            display: none;
+        }
+    }
+
+    .kiel_city{
+        margin-left: 30px;
+        align: center;
+    }
+
+    .shopping p{
+        padding: 10px;
+        text-align: justify;
+    }
+
+    .text_exp{
+        margin: 20px 0px;
+        background-color: #DEEEDE;
+        padding: 20px;
+        font-family: "Courier New";
+    }
+
+</style>
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
 
@@ -54,64 +91,60 @@
 
 <br>
 
-<div class="container">
+<div class="container text-center row kiel_city">
+    <br>
 
+    <div class="shopping col-md-3">
+        <h4><a href="#">Champions League Actions</a></h4>
+        <img class="shipping" width="250px" height="200px" src="/images/sports_image/img_4.jpg" alt="Cruise_Image">
+        <p>Gigantic ferries to Scandinavia, cruise liners from all over the world, shopping malls, baltic beaches and the cultural scene make
+            the life worth living in the city centre of Kiel. Through its unique location at Kiel Fjord,</p>
+    </div>
 
-    <div class="row">
+    <div class="shopping col-md-3">
+        <h4><a href="#">Premier League News</a></h4>
+        <img class="city" width="250px" height="200px" src="/images/sports_image/img_5.jpg" alt="Cruise_Image">
+        <p>Gigantic ferries to Scandinavia, cruise liners from all over the world, shopping malls, baltic beaches and the cultural scene make
+            the life worth living in the city centre of Kiel. Through its unique location at Kiel Fjord,</p>
+    </div>
 
-        <div class="col-sm-3 ">
-            <div class="panel-primary">
-                <div class="panel-body"><img src="images/sports_image/img_4.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-                <p class="card-block">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam velit quisquam veniam excepturi temporibus inventore corporis dicta sit culpa veritatis placeat earum, dolorum asperiores, delectus dolore voluptatibus, at magnam nobis!
-                </p>
-            </div>
-        </div>
-
-        <div class="col-sm-3 ">
-            <div class="panel-primary">
-                <div class="panel-body"><img src="images/sports_image/img_5.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-                <p class="card-block">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam velit quisquam veniam excepturi temporibus inventore corporis dicta sit culpa veritatis placeat earum, dolorum asperiores, delectus dolore voluptatibus, at magnam nobis!
-                </p>
-            </div>
-        </div>
-
-        <div class="col-sm-3 ">
-            <div class="panel-primary">
-                <div class="panel-body"><img src="images/sports_image/img_12.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-                <p class="card-block">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam velit quisquam veniam excepturi temporibus inventore corporis dicta sit culpa veritatis placeat earum, dolorum asperiores, delectus dolore voluptatibus, at magnam nobis!
-                </p>
-            </div>
-        </div>
+    <div class="shopping col-md-3">
+        <h4><a href="#">Transfer Rumours</a></h4>
+        <img class="malls" width="250px" height="200px" src="images/sports_image/img_12.jpg" alt="Cruise_Image">
+        <p>Gigantic ferries to Scandinavia, cruise liners from all over the world, shopping malls, baltic beaches and the cultural scene make
+            the life worth living in the city centre of Kiel. Through its unique location at Kiel Fjord,</p>
 
     </div>
+
+    <div class="sidebar col-md-3">
+        <% include template/sidebar.ejs%>
+    </div>
+</div><hr/>
+
+
+
+<div class="row col-md-12 text_exp">
+    <p>"....my experience in Kiel has been one of the memorable adventure of my life! The feeling is simply amazing</p>
+</div><hr/>
+
+<div class="row">
+    <div class="col-md-2">
+        <h5><b>Are you looking for an accommodation?</b></h5>
+        <p><small>Then search no more! We've got one of the best hotels and apartments in town. We can help you make a booking 24/7 at your convenience</small></p>
+    </div>
+
+    <div class="col-md-5">
+        <img class="malls" width="400px" height="200px" src="/images/home_images/ht_1.jpg" alt="Hotel">
+    </div>
+
+    <div class="col-md-5">
+        <img class="malls" width="400px" height="200px" src="/images/home_images/ht_2.jpg" alt="Hotel">
+    </div>
+</div>
+<hr/>
+
+
+
+
+</div>
 </div><br>
-
-
-
-<div class="container">
-    <div class="row">
-
-        <div class="col-sm-3 ">
-            <div class="panel-primary">
-                <div class="panel-body"><img src="images/sports_image/img_11.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-                <p class="card-block">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam velit quisquam veniam excepturi temporibus inventore corporis dicta sit culpa veritatis placeat earum, dolorum asperiores, delectus dolore voluptatibus, at magnam nobis!
-                </p>
-            </div>
-        </div>
-        <div class="col-sm-3 ">
-            <div class="panel-primary">
-                <div class="panel-body"><img src="images/sports_image/img_8.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-                <p class="card-block">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam velit quisquam veniam excepturi temporibus inventore corporis dicta sit culpa veritatis placeat earum, dolorum asperiores, delectus dolore voluptatibus, at magnam nobis!
-                </p>
-            </div>
-        </div>
-
-
-
-    </div>
-</div><br><br>

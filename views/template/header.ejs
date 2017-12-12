@@ -1,0 +1,97 @@
+<title>FootBall Fanz</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="node_modules/angular-footballdata-api-factory/dist/angular-footballdata-api-factory.min.js"></script>
+<script src="node_modules/angular-footballdata-api-factory/dist/angular-footballdata-api-factory.min.js"></script>
+<style>
+
+    .navbar, .dropdown-menu{
+        background:rgba(255,255,255,0.25);
+        border: none;
+
+    }
+
+    .nav>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .dropdown-menu>li>a, .dropdown-menu>li{
+        border-bottom: 3px solid transparent;
+        color: #3e4444;
+    }
+    .nav>li>a:focus, .nav>li>a:hover,.nav .open>a, .nav .open>a:focus, .nav .open>a:hover, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+        border-bottom: 3px solid transparent;
+        background: none;
+    }
+    .navbar a, .dropdown-menu>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .navbar-toggle{
+        color: #fff;
+    }
+    .dropdown-menu{
+        -webkit-box-shadow: none;
+        box-shadow:none;
+    }
+
+    .side-bar .nav-tabs{border-bottom:none;}
+    .side-bar .nav-tabs .nav-link {color: #aeaeae; text-transform: uppercase; border: none;}
+    .side-bar .nav-tabs .nav-link.active, .side-bar .nav-tabs .nav-link:hover{border-bottom:2px solid #ff0000;  text-transform: uppercase; color: #222}
+    .sidebar-tabing .media{margin-top: 20px}
+    .sidebar-tabing img{width: 120px;height: 100px;}
+    .sidebar-tabing .title-small {line-height: 23px; margin-top: 5px; font-size: 18px}
+
+
+    .carousel-inner img {
+        width: 70%; /* Set width to 100% */
+        margin: auto;
+        min-height:200px;
+    }
+
+    /* Hide the carousel text when the screen is less than 600 pixels wide */
+    @media (max-width: 600px) {
+        .carousel-caption {
+            display: none;
+        }
+    }
+
+    .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+        background-color: #463cff;
+        color: #1c7430;
+
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+        color: #fff;
+        padding: 0px;
+
+    }
+
+    .nav-design{
+        float: right;
+    }
+
+    .scroll_up{
+        float: right;
+        margin: 0px;
+    }
+    .copyright_design{
+        margin-top: 5px;
+        color: rgba(30,41,30,0.67);
+        padding: 5px;
+    }
+
+    .container-fluid{
+        padding-top: 5px;
+        background-color: #3e4444;
+
+    }
+
+    .header-design{
+        background-color: #fff;
+    }
+    .nav_style{
+        background-color: #000;
+    }
+
+
+</style>

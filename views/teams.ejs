@@ -1,0 +1,9 @@
+<div class="row">
+    <ul>
+        <% data.teams.forEach(function(item) { %>
+        <li>
+            <a href='/getTeamInfo?playerLink=<%= item._links.players.href %>' > <%= item.name %> </a>
+        </li>
+        <% }); %>
+    </ul>
+</div>

@@ -6,5 +6,9 @@ router.get('/', function(req, res, next) {
     res.render('template', { title: 'SportsFanz', pageName : 'home.ejs' });
 });
 
+
+
+
+
 module.exports = router;
 

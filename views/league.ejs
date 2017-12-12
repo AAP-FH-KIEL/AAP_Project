@@ -1,0 +1,32 @@
+<br/><br/><br/>
+<div class="row">
+    <div class="col-md-2">
+<table border="2">
+    <tr>
+        <th>position</th>
+        <th>teamName</th>
+        <th>playedGames</th>
+        <th>points</th>
+        <th>goals</th>
+        <th>goalsAgainst</th>
+        <th>goalDifference</th>
+        <th>wins:</th>
+    </tr>
+    <% data.standing.forEach(function(item) { %>
+    <tr>
+        <td>
+           <%= item.position%>
+        </td>
+        <td><%= item.teamName %></td>
+        <td> <%= item.playedGames %></td>
+        <td><%= item.points %></td>
+        <td><%= item.goals %></td>
+        <td><%= item.goalsAgainst %></td>
+        <td><%= item.goalDifference %></td>
+        <td><%= item.wins %></td>
+    </tr>
+    <% }); %>
+</table>
+    </div>
+</div>
+<br/><br/><br/>

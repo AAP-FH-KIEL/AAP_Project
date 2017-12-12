@@ -1,0 +1,68 @@
+<style>
+    #news1{
+        margin-left: 50px;
+    }
+    .pl{
+        float: right;
+    }
+    .table{
+        float: right;
+    }
+    .table td, th{
+        padding:5px;
+    }
+</style>
+
+
+<div class="row news1">
+
+    <%var i = 0;%>
+    <div class="col-md-9">
+            <% data.news.articles.forEach(function(list) { i++; %>
+                <div class="col-md-6">
+                <div><h4><a><%= list.title %></a></h4>
+                    <img style="width: 300px ; height:200px" src="images/sports_image/pl.jpg">
+                    <div class="col-sm-6"><%= list.description %></div>
+                    <div style="clear: left"><%= list.publishedAt %></div>
+                </div>
+                </div>
+                <% }); %>
+
+    </div>
+
+    <div class="col-md-3">
+        <br/><br/><br/>
+
+                <table border="2">
+                    <tr>
+                        <th></th>
+                        <th>Team</th>
+                        <th>P</th>
+                        <th>GD</th>
+                        <th>Pts</th>
+                        <%
+                        data.table.standing.forEach(function(item) { %>
+                    <tr>
+                        <td><%= item.position %></td>
+                        <td><%= item.teamName %></td>
+                        <td> <%= item.playedGames %></td>
+                        <td><%= item.goalDifference %></td>
+                        <td><%= item.points %></td>
+                        <td><img width="40px" height="40px" src="<%= item.crestURI %>"></td>
+                    </tr>
+                    <% }); %>
+                </table>
+            </div>
+        </div>
+        <br/><br/><br/>
+
+    </div>
+
+</div>
+
+<script>
+    var league = document.getElementById('news');
+    if(i = 0){
+
+    }
+</script>

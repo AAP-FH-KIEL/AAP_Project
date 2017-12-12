@@ -1,0 +1,57 @@
+<div>
+    <form action="/signup" method="post" class="form-group" target="_blank" id="signupForm">
+        First Name:<br>
+        <input type="text" name="firstName" placeholder="Enter your first name here"><br>
+        Last Name:<br>
+        <input type="text" name="lastName" placeholder="Enter your last name here"><br>
+        Email:<br>
+        <input type="text" name="email" placeholder="Your email goes here"><br>
+        Gender:<br>
+        <input type="text" name="gender" placeholder="'male' or 'female'"><br>
+        Username:<br>
+        <input type="text" name="username" placeholder="Enter your username here"><br>
+        Password:<br>
+        <input type="password" name="password" placeholder="Enter your password here"><br>
+        Re-enter Password:<br>
+        <input type="password" name="password2" placeholder="Re-enter your password here">
+        <br><br>
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--<script src="../public/javascripts/main.js" type="text/javascript" rel="script"></script>-->
+<script>
+    var signupForm = $('#signupForm');
+    signupForm.on('submit', function(event) {
+        event.preventDefault();
+        var username = signupForm.find('input[name=username]').val().trim();
+        var password = signupForm.find('input[name=password]').val().trim();
+        var password2 = signupForm.find('input[name=password2]').val().trim();
+        var firstName = signupForm.find('input[name=firstName]').val().trim();
+        var lastName = signupForm.find('input[name=lastName]').val().trim();
+        var email = signupForm.find('input[name=email]').val().trim();
+        var gender = signupForm.find('input[name=gender]').val().trim();
+        if (password !== password2)
+            window.alert('Passwords do not match')
+        else {
+            $.ajax({
+                type: 'POST',
+                url: '/signup',
+                data: {
+                    username: username,
+                    password: password,
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    gender: gender
+                },
+                success: function() {
+                    window.location = '/'
+                },
+                error: function() {
+                    window.alert('Error creating account please try again!');
+                }
+            });
+        }
+    });
+</script>
