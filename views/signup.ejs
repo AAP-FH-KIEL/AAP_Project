@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+>>>>>>> 43d1ac7a80eba2aef6fe07b3149ed41c17450959
 <div>
     <form action="/signup" method="post" class="form-group" target="_blank" id="signupForm">
         First Name:<br>
@@ -24,6 +36,10 @@
     var signupForm = $('#signupForm');
     signupForm.on('submit', function(event) {
         event.preventDefault();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 43d1ac7a80eba2aef6fe07b3149ed41c17450959
         var username = signupForm.find('input[name=username]').val().trim();
         var password = signupForm.find('input[name=password]').val().trim();
         var password2 = signupForm.find('input[name=password2]').val().trim();
@@ -31,6 +47,10 @@
         var lastName = signupForm.find('input[name=lastName]').val().trim();
         var email = signupForm.find('input[name=email]').val().trim();
         var gender = signupForm.find('input[name=gender]').val().trim();
+<<<<<<< HEAD
+=======
+
+>>>>>>> 43d1ac7a80eba2aef6fe07b3149ed41c17450959
         if (password !== password2)
             window.alert('Passwords do not match')
         else {
@@ -54,4 +74,10 @@
             });
         }
     });
+<<<<<<< HEAD
 </script>
+=======
+</script>
+</body>
+</html>
+>>>>>>> 43d1ac7a80eba2aef6fe07b3149ed41c17450959

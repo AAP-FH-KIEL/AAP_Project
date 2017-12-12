@@ -5,8 +5,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
+
     res.render('template', { title: 'SportsFanz', pageName : 'home.ejs' });
     //res.render('template', { user: req.user });
+
 });
 
 // signup routes
@@ -15,13 +17,14 @@ router.get('/signup', function(req, res) {
 });
 router.post('/signup', function(req, res) {
     Account.register(new Account({
-        username: req.body.username,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        gender: req.body.gender,
-        password: req.body.password
-    }), req.body.password, function(err, account) {
+            username: req.body.username,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            gender: req.body.gender,
+            password: req.body.password
+        }), req.body.password, function(err, account) {
+
         if (err)
             return res.render('signup', {account: account});
         passport.authenticate('local')(req, res, function() {
@@ -49,4 +52,6 @@ router.get('/test', function(req, res) {
     res.status(200).send('Bing bing Bong Bong!! I am master Jide')
 });
 
+
 module.exports = router;
+

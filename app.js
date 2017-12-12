@@ -1,12 +1,17 @@
 var express = require('express');
 var path = require('path');
+var mongoose = require('mongoose');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+
 var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+
 
 var app = express();
 
@@ -22,6 +27,7 @@ var leagueTable = require('./app_server/routes/leagueTable');
 // -----------------------------------------------------------
 
 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -31,6 +37,13 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(require('express-session')({
+    secret: 'nobody knows JS',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('express-session')({
     secret: 'nobody knows JS',
@@ -82,6 +95,37 @@ mongoose.connection.on('disconnected', function () {
     console.log('Mongoose disconnected');
 });
 
+
+app.use('/', home);
+app.use('/users', users);
+//app.use('/home', index);
+
+app.use('/', routes);
+
+// passport config
+var Account = require('./app_server/model/account');
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
+
+// mongoose
+var dbUrl = 'mongodb://localhost:27017/FootballFanApp';
+mongoose.Promise = global.Promise;
+mongoose.connect(dbUrl);
+mongoose.connection.on('connected', function () {
+    console.log('Mongoose connected to ' + dbUrl);
+});
+
+mongoose.connection.on('error', function (error) {
+    console.log('Mongoose connection error ' + error);
+});
+
+mongoose.connection.on('disconnected', function () {
+    console.log('Mongoose disconnected');
+});
+
+
+// catch 404 and forward to error handler
 
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

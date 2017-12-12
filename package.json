@@ -20,6 +20,7 @@
     "espn": "^0.0.4",
     "express": "~4.15.5",
     "football-api-client": "^1.0.8",
+    "express-session": "^1.15.6",
     "mongoose": "^4.12.5",
     "morgan": "~1.9.0",
     "nodemon": "^1.12.1",
