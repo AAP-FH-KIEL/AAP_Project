@@ -8,9 +8,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var mongoose = require('mongoose');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
 
 
 var app = express();
@@ -50,13 +47,9 @@ app.use(require('express-session')({
     resave: false,
     saveUninitialized: false
 }));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', routes);
-
-
 app.use('/home', home);
 //app.use('/users', users);
 app.use('/players', players);
@@ -67,40 +60,8 @@ app.use('/clubs', clubs);
 app.use('/news', news);
 app.use(express.static('app_server/public'));
 app.use(require('./app_server/routes/index'));
-//app.use(require('/app_server/routes/scores'));
-// app.use(require('./app_server/routes/newsFeed'));
-// app.use(require('./app_server/routes/api'));
-//app.use(require('./app_server/routes/clubs'));
 
 
-// passport config
-var Account = require('./app_server/model/account');
-passport.use(new LocalStrategy(Account.authenticate()));
-passport.serializeUser(Account.serializeUser());
-passport.deserializeUser(Account.deserializeUser());
-
-// mongoose
-var dbUrl = 'mongodb://localhost:27017/FootballFanApp';
-mongoose.Promise = global.Promise;
-mongoose.connect(dbUrl);
-mongoose.connection.on('connected', function () {
-    console.log('Mongoose connected to ' + dbUrl);
-});
-
-mongoose.connection.on('error', function (error) {
-    console.log('Mongoose connection error ' + error);
-});
-
-mongoose.connection.on('disconnected', function () {
-    console.log('Mongoose disconnected');
-});
-
-
-app.use('/', home);
-app.use('/users', users);
-//app.use('/home', index);
-
-app.use('/', routes);
 
 // passport config
 var Account = require('./app_server/model/account');
@@ -143,7 +104,5 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error');
 });
-
-
 
 module.exports = app;

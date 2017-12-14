@@ -36,7 +36,7 @@ router.get('/teams', function(req, res, next) {
     }
     });
 });
-router.get('/competitions', function(req, res, next) {
+router.get('/lists', function(req, res, next) {
     var requestRoute = {
         url : "http://api.football-data.org/v1/competitions/?season=2017",
         method : "GET",
