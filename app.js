@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 var app = express();
 
 var index = require('./app_server/routes/index');
@@ -25,6 +26,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+
+// mongoose
+var dbUrl = 'mongodb://app_team:team2018@ds059546.mlab.com:59546/fansportsapp';
+mongoose.Promise = global.Promise;
+mongoose.connect(dbUrl);
+mongoose.connection.on('connected', function () {
+    console.log('Mongoose connected to ' + dbUrl);
+});
+
+mongoose.connection.on('error', function (error) {
+    console.log('Mongoose connection error ' + error);
+});
+
+mongoose.connection.on('disconnected', function () {
+    console.log('Mongoose disconnected');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
