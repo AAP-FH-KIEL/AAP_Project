@@ -1,0 +1,57 @@
+<style>
+    .api_style {
+        color: orange;
+        margin-left: 60px;
+    }
+    h1{text-align: center; font-size: xx-large; font-weight: bolder; margin: 50px}
+
+</style>
+
+<div class="row" style="text-align: center">
+    <h1>Latest Fixtures</h1>
+
+<form accept-charset="UTF-8" id="favouriteForm" action="favourite" method="post">
+        <% data.fixtures.forEach(function(item) { %>
+        <ul style="margin: 15px; list-style-type: none; font-weight: bold">
+            <li><%= item.homeTeamName %> <%= "  vs  " %> <%= item.awayTeamName %>  </li>
+           <div class="stars starrr" data-rating="0"></div>
+            <span class="glyphicon .glyphicon-star-empty glyphicon-star-empty"></span>
+            <button class="btn btn-success btn-sm style" type="submit">Favourite</button>
+
+        </ul>
+    <hr>
+        <% }); %>
+</form>
+</div>
+<script>
+    $("#favouriteForm").submit(function (event) {
+        event.preventDefault();
+        var user_id = <%  if (locals.session.userid != null) {%> <%=locals.session.userid;%> <%  } else { %>  -1 <% }%>;
+        if(user_id == -1) {
+            window.open("http://localhost:3000/signup");
+            return false;
+        }
+        $.ajax({
+            url: 'favourite',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                User_id : user_id,
+                MatchID : $("#ratings-hidden").val()
+            },
+            success: function(data) {
+                if(data.favourited == true) {
+                    //$("#averageRating").html(data.averageRating);
+                    var favourites = [];
+                    alert(data.message);
+                }else {
+                    alert(data.error);
+                }
+            },
+            fail: function (err) {
+                alert( err );
+            }
+        });
+    });
+</script>
+
