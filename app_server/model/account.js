@@ -3,14 +3,7 @@ var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
 
 var Account = new Schema({
-    firstName: {
-        type: String,
-        required: 'Kindly enter your first name'
-    },
-    lastName: {
-        type: String,
-        required: 'Kindly enter your last name'
-    },
+
     username: {
         type: String,
         required: 'Kindly enter your desired username'
@@ -23,12 +16,7 @@ var Account = new Schema({
         type: String,
         required: 'Kindly enter your first name'
     },
-    gender: {
-        type: [{
-            type: String,
-            enum: ['male', 'female']
-        }]
-    }
+
 });
 
 Account.plugin(passportLocalMongoose);

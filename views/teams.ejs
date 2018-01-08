@@ -1,8 +1,21 @@
 <div class="row">
     <ul>
         <% data.teams.forEach(function(item) { %>
+
+        <%if (item.name == 'Chelsea FC') { %>
+         <% var hlink = "/chelsea.ejs" %>
+        <% } %>
+        <%  if(item.name == "Manchester United FC"){ %>
+        <% var hlink = "/manunited.ejs" %>
+        <% } else{ %>
+        <% var hlink = "/chelsea.ejs" %>
+        <% } %>
         <li>
-            <a href='/getTeamInfo?playerLink=<%= item._links.players.href %>' > <%= item.name %> </a>
+            <a href='<%= hlink %>' > <%= item.name %> </a>
+            <div class="stars starrr" data-rating="0"></div>
+            <span class="glyphicon .glyphicon-star-empty glyphicon-star-empty"></span>
+            <button class="btn btn-success btn-sm style" type="submit">Favourite</button>
+
         </li>
         <% }); %>
     </ul>

@@ -1,34 +1,19 @@
+<div class="row">
+    <ul>
+        <% data.players.forEach(function(item) { %>
 
 
-
-<table border="2">
-    <tr>
-        <th>Image</th>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Country</th>
-        <th>Goals</th>
-        <th>Assist</th>
-        <th>Pass Accuracy</th>
-        <th>Appearances:</th>
-    </tr>
-    <% MyValue.players.forEach(function(item) { %>
-    <tr>
-        <td>
-            <img width="200px" height="200px" src="./../images/<%= item.Image %>" alt="Player_Image">
-        </td>
-        <td><%= item.Name %></td>
-        <td> <%= item.Age %></td>
-        <td><%= item.Country %></td>
-        <td><%= item.Goals %></td>
-        <td><%= item.Assist %></td>
-        <td><%= item.PassAccuracy %></td>
-        <td><%= item.Appearances %></td>
-    </tr>
-    <% }); %>
-</table>
+            <li> <%= item.name %> </li>
+            <li> <%= item.position %> </li>
+            <li> <%= item.jeyseyNumber %> </li>
+            <li> <%= item.dateOfBirth %> </li>
+            <li> <%= item.nationaity %> </li>
+            <li> <%= item.contractUntil %> </li>
+            <div class="stars starrr" data-rating="0"></div>
+            <span class="glyphicon .glyphicon-star-empty glyphicon-star-empty"></span>
+            <button class="btn btn-success btn-sm style" type="submit">Favourite</button>
 
 
-    <br/><br/><br/><br/><br/>
+        <% }); %>
+    </ul>
 </div>
-

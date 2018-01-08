@@ -1,24 +1,4 @@
-<<<<<<< HEAD
-<div>
-    <form role="form" action="/login" method="post" style="max-width: 300px;" class="form-control" target="_blank" id="loginForm">
-        Username:<br>
-        <input type="text" name="username" placeholder="Enter your username here"><br>
-        Password:<br>
-        <input type="password" name="password" placeholder="Enter your password here">
-        <br><br>
-        <input type="submit" class="btn btn-primary" value="Submit">
-    </form>
-</div>
-=======
-<!DOCTYPE html>
-<html>
-<head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-<body>
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+
     <div>
         <form role="form" action="/login" method="post" style="max-width: 300px;" class="form-control" target="_blank" id="loginForm">
             Username:<br>
@@ -29,18 +9,15 @@
             <input type="submit" class="btn btn-primary" value="Submit">
         </form>
     </div>
->>>>>>> 43d1ac7a80eba2aef6fe07b3149ed41c17450959
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!--<script src="../public/javascripts/main.js" type="text/javascript" rel="script"></script>-->
+<!--<script src="/app_server/routes/main.js" type="text/javascript" rel="script"></script>-->
 <script>
     // setup for login form
-<<<<<<< HEAD
-    //    $(document)
-    //    const loginForm = document.getElementById('loginForm')
-=======
-//    $(document)
-//    const loginForm = document.getElementById('loginForm')
->>>>>>> 43d1ac7a80eba2aef6fe07b3149ed41c17450959
+
+   $(document)
+    //const loginForm = document.getElementById('loginForm')
+
     var loginForm = $('#loginForm')
     console.log(loginForm);
     loginForm.on('submit', function(event) {
@@ -48,7 +25,7 @@
         var username = loginForm.find('input[name=username]').val().trim();
         var password = loginForm.find('input[name=password]').val().trim();
         $.ajax({
-<<<<<<< HEAD
+
             type: 'POST',
             url: '/login',
             data: {
@@ -65,22 +42,3 @@
         });
     });
 </script>
-=======
-           type: 'POST',
-           url: '/login',
-           data: {
-               username: username,
-               password: password
-           },
-           success: function() {
-               window.location = '/'
-           },
-           error: function(err) {
-               window.alert(err.responseText);
-           }
-        });
-    });
-</script>
-</body>
-</html>
->>>>>>> 43d1ac7a80eba2aef6fe07b3149ed41c17450959
