@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var http = require('http');
-var io = require('socket.io')(http);
+var io = require('socket.io')();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
@@ -12,6 +12,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var app = express();
+
 
 var routes = require('./app_server/routes/main');
 var users = require('./app_server/routes/userController/users');
@@ -27,8 +28,10 @@ var chat = require('./app_server/routes/chat');
 // -----------------------------------------------------------
 
 // view engine setup
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('port', port);
 //app.set('clubProfile', clubData);
 
 app.use(logger('dev'));
@@ -58,15 +61,6 @@ app.use(require('./app_server/routes/index'));
 app.use('/main', main);
 app.use('/chat', chat);
 
-// app.use(express.static('app_server/public'));
-
-app.use(session({
-    secret: 'nobodyknowsjavascript',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: true }
-}));
-
 // passport config
 var Account = require('./app_server/model/account');
 passport.use(new LocalStrategy(Account.authenticate()));
@@ -91,6 +85,21 @@ mongoose.connection.on('disconnected', function () {
     console.log('Mongoose disconnected');
 });
 
+//=======Socket starts here
+
+
+var server = app.listen(app.get('port'), function(){
+    console.log('Listening on port ' + app.get('port'));
+});
+
+io.attach(server);
+io.on('connection', function(socket){
+    console.log('User Connected');
+
+    socket.on('disconnect', function(){
+        console.log('User Disconnected');
+    });
+});
 
 
 // catch 404 and forward to error handler
@@ -113,3 +122,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+

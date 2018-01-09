@@ -1,191 +1,58 @@
 <style>
-    /* Fix user-agent */
-
-    * {
-        box-sizing: border-box;
-    }
-
-    html {
-        font-weight: 300;
-        -webkit-font-smoothing: antialiased;
-    }
-
-    html, input {
-        font-family:
-                "HelveticaNeue-Light",
-                "Helvetica Neue Light",
-                "Helvetica Neue",
-                Helvetica,
-                Arial,
-                "Lucida Grande",
-                sans-serif;
-    }
-
     html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
+        height: 100%
+    }
+    .wrap {
+        min-height: 100%
+        height: auto !important
+        height: 100%
+        margin: 0 auto -60px
     }
 
-    ul {
-        list-style: none;
-        word-wrap: break-word;
-    }
+    .push, .footer{
+    height: 60px}
 
-    /* Pages */
-
-    .pages {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-
-    .page {
-        height: 100%;
-        position: absolute;
-        width: 100%;
-    }
-
-    /* Login Page */
-
-    .login.page {
-        background-color: #000;
-    }
-
-    .login.page .form {
-        height: 100px;
-        margin-top: -100px;
-        position: absolute;
-
-        text-align: center;
-        top: 50%;
-        width: 100%;
-    }
-
-    .login.page .form .usernameInput {
-        background-color: transparent;
-        border: none;
-        border-bottom: 2px solid #fff;
-        outline: none;
-        padding-bottom: 15px;
-        text-align: center;
-        width: 400px;
-    }
-
-    .login.page .title {
-        font-size: 200%;
-    }
-
-    .login.page .usernameInput {
-        font-size: 200%;
-        letter-spacing: 3px;
-    }
-
-    .login.page .title, .login.page .usernameInput {
-        color: #fff;
-        font-weight: 100;
-    }
-
-    /* Chat page */
-
-    .chat.page {
-        display: none;
-    }
-
-    /* Font */
-
-    .messages {
-        font-size: 150%;
-    }
-
-    .inputMessage {
-        font-size: 100%;
-    }
-
-    .log {
-        color: gray;
-        font-size: 70%;
-        margin: 5px;
-        text-align: center;
-    }
-
-    /* Messages */
-
-    .chatArea {
-        height: 100%;
-        padding-bottom: 60px;
-    }
-
-    .messages {
-        height: 100%;
-        margin: 0;
-        overflow-y: scroll;
-        padding: 10px 20px 10px 20px;
-    }
-
-    .message.typing .messageBody {
-        color: gray;
-    }
-
-    .username {
-        font-weight: 700;
-        overflow: hidden;
-        padding-right: 15px;
-        text-align: right;
-    }
-
-    /* Input */
-
-    .inputMessage {
-        border: 10px solid #000;
-        bottom: 0;
-        height: 60px;
-        left: 0;
-        outline: none;
-        padding-left: 10px;
-        position: absolute;
-        right: 0;
-        width: 100%;
-    }
+    .footer{
+        background-color: #f5f5f5}
 </style>
 
-
-<button type="button" class="btn btn-primary">
-    Login/Sign Up to Chat
-</button>
-
-<!-- Modal -->
-<div class="chat-form" id="chat-form">  <div class="chat-content">
-
-            <div class="chat-body">
-                <form class="chat-form">
-                    <div class="">
-                        <label for="UserName" class="col-form-label ">UserName:</label>
-                        <input type="text" class="form-control pd" id="UserName-name">
-                    </div>
-                    <div class="">
-                        <label for="Email" class="col-form-label">Email:</label>
-                        <input type="text" class="form-control pd" id="Email-name">
-                    </div>
-
-                    <div class="">
-                        <label for="Password" class="col-form-label">Password:</label>
-                        <input type="text" class="" id="Pw">
-                    </div>
-                    <div class="">
-                        <label for="Password 2" class="col-form-label">Password 2:</label>
-                        <input type="text" class="form-control pd" id="Pw2">
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer form-group2">
-                <button type="button" class="btn btn-secondary">Register</button>
-            </div>
+<div class="wrap chatArea" id="chatArea">
+    <div class="container-fluid">
+        <h1> Welcome To Chat Room</h1>
+        <div id="message">
+        </div>
+        <div class="push">
         </div>
     </div>
+
 </div>
+
+<div class="footer">
+    <div class="container-fluid">
+
+        <div id="row">
+            <div class=".col-xs-8.col-sm-9">
+                <input type="text" id="message-box" class="form-control input-lg" placeholder="Write your message here..." >
+            </div>
+            <div class="col-xs-4.col-sm-3">
+                <button id="send-message-btn" class="btn btn-primary btn-lg btn-block">Send Message</button>
+            </div>
+        </div>
+
+    </div>
 </div>
-</div>
-</div>
+
+<script>
+    $(function(){
+        $("#new-pop").click(function () {
+            $('#chatArea').new-pop('popup-box-on');
+        });
+
+        $("#removeClass").click(function () {
+            $('#chatArea').removeClass('popup-box-on');
+        });
+    })
+</script>
+
+
 

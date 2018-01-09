@@ -7,13 +7,13 @@ var request = require('request');
 //var client = require(('football-api-nodejs-client')(2370054d48474dcbba5cb153af166603));
 
 
-var newsApi = "https://newsapi.org/v2/top-headlines?sources=bbc-sport&apiKey=47627eed59d843ab8b7324426c023731";
+var newsApi = "https://newsapi.org/v2/top-headlines?sources=espn&apiKey=47627eed59d843ab8b7324426c023731";
 
 var apiRoute = {
     server : "http://localhost:3000"
 };
 if (process.env.NODE_ENV === 'production') {
-    apiRoute.server = "https://newsapi.org/v2/top-headlines?sources=bbc-sport&apiKey=47627eed59d843ab8b7324426c023731";
+    apiRoute.server = "https://newsapi.org/v2/top-headlines?sources=espn&apiKey=47627eed59d843ab8b7324426c023731";
 }
 
 
@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === 'production') {
 router.get('/', function(req, res, next) {
     var responseData = {};
     var requestRoute = {
-        url: "https://newsapi.org/v2/top-headlines?sources=bbc-sport&apiKey=47627eed59d843ab8b7324426c023731",
+        url: "http://api.football-data.org/v1/competitions/445/leagueTable",
         method: "GET",
         json: {},
         qs: {

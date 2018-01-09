@@ -1,32 +1,97 @@
+<style>
+ .sign-up{
+
+     width: 1150px;
+     height: 350px;
+     margin-left: 60px;
+     padding: 10px 25px;
+ }
+    .user-label{
+        margin: 10px;
+    }
+</style>
+<!--<form action="/signup" method="post" class="form-group sign-up" target="_blank" id="signupForm">-->
+
+    <!--Email:<br>-->
+    <!--<input type="text" name="email" placeholder="Your email goes here"><br>-->
+    <!--Username:<br>-->
+    <!--<input type="text" name="username" placeholder="Enter your username here"><br>-->
+    <!--Password:<br>-->
+    <!--<input type="password" name="password" placeholder="Enter your password here"><br>-->
+    <!--Re-enter Password:<br>-->
+    <!--<input type="password" name="password2" placeholder="Re-enter your password here">-->
+    <!--<br><br>-->
+    <!--<input type="submit" class="btn btn-primary" value="Submit">-->
+<!--</form>-->
+
+    <div class="modal-body">
+        <div class="well sign-up">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
+                <li><a href="#create" data-toggle="tab">Create Account</a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane active in" id="login">
+                    <form class="form-horizontal" action='/signup' method="POST">
+                        <fieldset>
+                            <div id="legend">
+                                <legend class="">Login</legend>
+                            </div>
+                            <div class="control-group">
+                                <!-- Username -->
+                                <label class="control-label"  for="username">Username</label>
+                                <div class="controls">
+                                    <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <!-- Password-->
+                                <label class="control-label" for="password">Password</label>
+                                <div class="controls">
+                                    <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+                                </div>
+                            </div>
 
 
-<form action="/signup" method="post" class="form-group" target="_blank" id="signupForm">
+                            <div class="control-group">
+                                <!-- Button -->
+                                <div class="controls">
+                                    <button class="btn btn-success">Login</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="create">
+                    <form id="tab">
+                        <label>Username</label>
+                        <input type="text" value="" class="user-label">
 
-    Email:<br>
-    <input type="text" name="email" placeholder="Your email goes here"><br>
-    Username:<br>
-    <input type="text" name="username" placeholder="Enter your username here"><br>
-    Password:<br>
-    <input type="password" name="password" placeholder="Enter your password here"><br>
-    Re-enter Password:<br>
-    <input type="password" name="password2" placeholder="Re-enter your password here">
-    <br><br>
-    <input type="submit" class="btn btn-primary" value="Submit">
-</form>
+                        <label>Email</label>
+                        <input type="text" value="" class="user-label">
+
+                        <label>Address</label>
+                        <textarea value="Smith" rows="3" class="user-label">
+                        </textarea>
+
+                        <div>
+                            <button class="btn btn-primary">Create Account</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <script>
-
     var signupForm = $('#signupForm');
     signupForm.on('submit', function(event) {
         event.preventDefault();
-
         var username = signupForm.find('input[name=username]').val().trim();
         var password = signupForm.find('input[name=password]').val().trim();
         var password2 = signupForm.find('input[name=password2]').val().trim();
         var email = signupForm.find('input[name=email]').val().trim();
-
-
-
         if (password !== password2)
             window.alert('Passwords do not match')
         else {
@@ -47,5 +112,4 @@
             });
         }
     });
-
 </script>

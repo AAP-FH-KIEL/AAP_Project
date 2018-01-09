@@ -21,8 +21,9 @@
             <% data.news.articles.forEach(function(list) { i++; %>
                 <div class="col-md-6">
                 <div><h4><a><%= list.title %></a></h4>
-                    <img style="width: 300px ; height:200px" src="images/sports_image/pl.jpg">
+                    <!--<img style="width: 300px ; height:200px" src="images/sports_image/pl.jpg">-->
                     <div class="col-sm-6"><%= list.description %></div>
+                     <img <%= list.urlToImage %>>
                     <div style="clear: left"><%= list.publishedAt %></div>
                 </div>
                 </div>
