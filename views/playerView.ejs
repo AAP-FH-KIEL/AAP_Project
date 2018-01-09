@@ -1,19 +1,39 @@
-<div class="row">
-    <ul>
+<style>
+    th, td{
+        padding: 10px 30px;
+
+    }
+    .tab{
+        margin-top: 50px;
+        margin-left: 200px;
+        margin-bottom: 50px;
+    }
+    h1{text-align: center; font-size: xx-large; font-weight: bolder; margin: 50px}
+</style>
+<div class="row tab">
+    <h1>Team Players - Chelsea</h1>
+    <table border="2">
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <!--<th>Jeysey Number</th>-->
+            <th>Date of Birth</th>
+            <th>Nationality</th>
+            <th>Contract Until</th>
+            <th>Favourite</th>
         <% data.players.forEach(function(item) { %>
-
-
-            <li> <%= item.name %> </li>
-            <li> <%= item.position %> </li>
-            <li> <%= item.jeyseyNumber %> </li>
-            <li> <%= item.dateOfBirth %> </li>
-            <li> <%= item.nationaity %> </li>
-            <li> <%= item.contractUntil %> </li>
-            <div class="stars starrr" data-rating="0"></div>
+        <tr>
+            <td> <%= item.name %> </td>
+            <td> <%= item.position %> </td>
+            <!--<li> <%= item.jeyseyNumber %> </li>-->
+            <td> <%= item.dateOfBirth %> </td>
+            <td> <%= item.nationality %> </td>
+            <td> <%= item.contractUntil %> </td>
+           <td><div class="stars starrr" data-rating="0"></div>
             <span class="glyphicon .glyphicon-star-empty glyphicon-star-empty"></span>
-            <button class="btn btn-success btn-sm style" type="submit">Favourite</button>
-
-
+            <button class="btn btn-success btn-sm style" type="submit">Favourite</button></td>
+    </tr>
         <% }); %>
-    </ul>
+    </table>
+
 </div>
