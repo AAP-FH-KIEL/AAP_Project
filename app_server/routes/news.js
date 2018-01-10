@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === 'production') {
 router.get('/', function(req, res, next) {
     var responseData = {};
     var requestRoute = {
-        url: "http://api.football-data.org/v1/competitions/445/leagueTable",
+        url: "https://newsapi.org/v2/top-headlines?sources=espn&apiKey=47627eed59d843ab8b7324426c023731",
         method: "GET",
         json: {},
         qs: {

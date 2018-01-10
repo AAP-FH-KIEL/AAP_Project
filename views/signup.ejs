@@ -2,82 +2,100 @@
  .sign-up{
 
      width: 1150px;
-     height: 350px;
+     height: 450px;
      margin-left: 60px;
      padding: 10px 25px;
  }
+ .label-style{
+     margin-left: 80px
+ }
+ .control-label{margin-bottom: 5px}
     .user-label{
-        margin: 10px;
+        margin:5px 0;
     }
-</style>
-<!--<form action="/signup" method="post" class="form-group sign-up" target="_blank" id="signupForm">-->
+    .form1{
+        margin: 80px;
+        padding-left: 80px;
+    }
 
-    <!--Email:<br>-->
-    <!--<input type="text" name="email" placeholder="Your email goes here"><br>-->
-    <!--Username:<br>-->
-    <!--<input type="text" name="username" placeholder="Enter your username here"><br>-->
-    <!--Password:<br>-->
-    <!--<input type="password" name="password" placeholder="Enter your password here"><br>-->
-    <!--Re-enter Password:<br>-->
-    <!--<input type="password" name="password2" placeholder="Re-enter your password here">-->
-    <!--<br><br>-->
-    <!--<input type="submit" class="btn btn-primary" value="Submit">-->
-<!--</form>-->
+     .form2{
+         margin: 10px 80px 50px 80px;
+         padding: 20px 80px 50px 80px;
+     }
+    .cdn{
+        font-weight: bolder;
+    }
+    .nav-tabs{
+        margin-left: 60px;
+    }
+    .user2{ }
+    .modal-body{padding: 20px}
+    .ltn{margin: 10px}
+</style>
 
     <div class="modal-body">
         <div class="well sign-up">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
-                <li><a href="#create" data-toggle="tab">Create Account</a></li>
+                <li class="active cdn"><a href="#login" data-toggle="tab">Login</a></li>
+                <li><a href="#create" class="cdn" data-toggle="tab">Create Account</a></li>
             </ul>
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane active in" id="login">
-                    <form class="form-horizontal" action='/signup' method="POST">
+                    <form class="form-horizontal form1" action='/login' method="POST" id="loginForm">
                         <fieldset>
-                            <div id="legend">
-                                <legend class="">Login</legend>
-                            </div>
+
                             <div class="control-group">
                                 <!-- Username -->
-                                <label class="control-label"  for="username">Username</label>
-                                <div class="controls">
-                                    <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
-                                </div>
+                                <label class="control-label label-style"  for="username">Username</label>
+                                <input type="text" id="username" name="username" placeholder="" class="input-xlarge ltn">
                             </div>
 
                             <div class="control-group">
                                 <!-- Password-->
-                                <label class="control-label" for="password">Password</label>
-                                <div class="controls">
-                                    <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-                                </div>
+                                <label class="control-label label-style" for="password">Password</label>
+                                <input type="password" id="password" name="password" placeholder="" class="input-xlarge ltn">
+
                             </div>
 
 
                             <div class="control-group">
                                 <!-- Button -->
-                                <div class="controls">
-                                    <button class="btn btn-success">Login</button>
+                                <div class="controls label-style">
+                                    <button class="btn btn-success label-style">Login</button>
                                 </div>
                             </div>
+
+                            <p class="facebook-logger"><a href="/auth/facebook">Login with FaceBook</a></p>
+                            <p class="google-logger"><a href="/auth/google">Login with Google</a></p>
                         </fieldset>
                     </form>
                 </div>
+
+                <!--//=====================Registration here==========================-->
+
                 <div class="tab-pane fade" id="create">
-                    <form id="tab">
-                        <label>Username</label>
+                    <form id="tab signupForm" class="form2 sign-up" action="/signup" method="post">
+                        <label class=" user1">Username</label><br>
                         <input type="text" value="" class="user-label">
+                        <br>
 
-                        <label>Email</label>
-                        <input type="text" value="" class="user-label">
+                        <label class="user2">Email</label><br>
+                        <input type="text" value="" name="email" class="user-label">
+                        <br>
 
-                        <label>Address</label>
-                        <textarea value="Smith" rows="3" class="user-label">
-                        </textarea>
+                        <label class="control-label user3" for="password">Password</label><br>
+                        <input type="password" id="password" name="password" placeholder="" class="input-xlarge user-label">
+                        <br>
 
-                        <div>
-                            <button class="btn btn-primary">Create Account</button>
-                        </div>
+                        <label class="control-label user4" for="password2">Re-Enter Password </label><br>
+                        <input type="password" id="password2" name="password2" placeholder="" class="input-xlarge user-label">
+                        <br>
+                        <br>
+
+                        <input type="submit" class="btn btn-primary" value="Create Account">
+                            <br>
+
+                        <br>
                     </form>
                 </div>
             </div>
@@ -111,5 +129,39 @@
                 }
             });
         }
+    });
+</script>
+
+<script>
+    // setup for login form
+
+    $(document)
+    //const loginForm = document.getElementById('loginForm')
+
+    var loginForm = $('#loginForm')
+    console.log(loginForm);
+    loginForm.on('submit', function(event) {
+        event.preventDefault();
+        var username = loginForm.find('input[name=username]').val().trim();
+        var password = loginForm.find('input[name=password]').val().trim();
+        $.ajax({
+
+            type: 'POST',
+            url: '/login',
+            data: {
+                username: username,
+                password: password
+            },
+            success: function() {
+
+                document.getElementById("user").innerHTML = "Welcome " +  req.username;
+
+                window.location = '/'
+            },
+            error: function(err) {
+//                window.alert(err.responseText);
+                window.alert("Sorry your username or password is NOT correct!!!");
+            }
+        });
     });
 </script>

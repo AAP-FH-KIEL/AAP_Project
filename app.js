@@ -4,13 +4,14 @@ var http = require('http');
 var io = require('socket.io')();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
 var mongoose = require('mongoose');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-
 var app = express();
 
 
@@ -31,7 +32,7 @@ var chat = require('./app_server/routes/chat');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('port', port);
+app.set('port', process.env.PORT || 8080);
 //app.set('clubProfile', clubData);
 
 app.use(logger('dev'));
@@ -61,11 +62,42 @@ app.use(require('./app_server/routes/index'));
 app.use('/main', main);
 app.use('/chat', chat);
 
-// passport config
+// passport config Local Strategy
 var Account = require('./app_server/model/account');
 passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
+
+
+////=======Passport Facebook strategy with oAuth
+
+passport.use(new FacebookStrategy({
+        clientID: 175812383019874,
+        clientSecret: '9be2d524d4078c6715995556a27ed3f7',
+        callbackURL: "http://localhost:8080/auth/facebook/callback"
+    },
+    function(accessToken, refreshToken, profile, cb) {
+        Account.findOrCreate({ facebookId: profile.id }, function (err, user) {
+            return cb(err, user);
+        });
+    }
+));
+
+//========Google Passport oAuth========
+
+passport.use(new GoogleStrategy({
+        consumerKey: 'javascript-project-191712',
+        consumerSecret: '556236553890',
+        callbackURL: "http://localhost:8080/auth/google/callback"
+    },
+    function(token, tokenSecret, profile, done) {
+        Account.findOrCreate({ googleId: profile.id }, function (err, user) {
+            return done(err, user);
+        });
+    }
+));
+
+//javascript-project-191712
 
 // mongoose
 
@@ -95,12 +127,14 @@ var server = app.listen(app.get('port'), function(){
 io.attach(server);
 io.on('connection', function(socket){
     console.log('User Connected');
+    socket.on('postMessage', function(data){
+        io.emit('updateMessages', data);
+    });
 
     socket.on('disconnect', function(){
         console.log('User Disconnected');
     });
 });
-
 
 // catch 404 and forward to error handler
 

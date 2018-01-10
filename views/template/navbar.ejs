@@ -2,24 +2,48 @@
     .bk-color{
         background-color: #1b1e21;
     }
+     .hd-image{
+        background-image: url('/champ.jpg');
+    }
+    .logger{
+        font-weight: bolder; color: #fff; margin-top: 10px; list-style-type: none;
+    }
 </style>
 
 <div class="navbar navbar-inverse container-fluid header-design">
 
 
-    <div class="row">
+    <div class="row hd-image">
         <div class="navbar-header col-md-5 col-sm-5 col-xs-5">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/home">SportsFanz</a>
+
+            <a class="" style="font-weight: bolder; font-size: x-large" href="/home">Sports Fanz - Welcome to Home of Sports</a>
         </div>
 
-        <div class="col-md-3 col-sm-3 col-xs-3 nav-design">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="signup"><span class="glyphicon"></span> Sign/Sign Up</a></li>
+        <div class="col-md-2 col-sm-2 col-xs-2 nav-design">
+            <ul class="nav navbar-nav ">
+                <li ><span class="glyphicon"></span>
+                    <script>
+                        document.write(Date());
+                    </script>
+                </li>
+            </ul>
+        </div>
+
+
+        <!--<div class="col-md-1 col-sm-1 col-xs-1 nav-design">-->
+            <!--<ul class="nav-bar navbar-right ">-->
+                <!--<li class="logger"><a href="logout"><span class="glyphicon"></span> Logout</a></li>-->
+
+            <!--</ul>-->
+        <!--</div>-->
+        <div class="col-md-2 col-sm-2 col-xs-2 nav-design">
+            <ul class="nav-bar navbar-right">
+                <li class="logger"><a href="signup"><span class="glyphicon"></span> Login/Sign Up</a></li>
             </ul>
         </div>
     </div>
@@ -37,15 +61,13 @@
                 <li><a href="/news">News</a></li>
                 <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
                     <ul class="dropdown-menu bk-color">
-                        <li><a href="/players">Players</a></li>
                         <li><a href="clubs">Clubs</a></li>
                         <li><a href="competition/teams">Team</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Favourite</a></li>
+                <li><a href="/players">Players</a></li>
                 <li><a href="competition/pl">League Table</a></li>
-                <li><a href="#">Comparison</a></li>
-                <li><a href="/chat">Chat Room</a></li>
+                <li><a href="/matches">Chat Room</a></li>
             </ul>
         </div>
     </div>

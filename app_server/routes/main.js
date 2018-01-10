@@ -21,10 +21,16 @@ router.post('/signup', function(req, res) {
             password2: req.body.password2
         }), req.body.password, function(err, account) {
 
-        if (err)
-            //return res.render('signup', {account: account});
-            res.render('Sorry this user does not exist');
+
+        if(err)
+            return
+                console.log('There is an error');
+
+        // if (err)
+        //     //return res.render('signup', {account: account});
+        //     res.render('Sorry this user does not exist');
         passport.authenticate('local')(req, res, function() {
+            //res.send('success',' Welcome ' + username)
             res.send('/');
         })
     })
@@ -42,13 +48,32 @@ passport.deserializeUser(function(id, done) {
 
 // login route
 router.get('/login', function(req, res) {
-    res.render('template', { title: 'SportsFanz', pageName : 'login.ejs', user: req.user });
+    res.render('template', { title: 'SportsFanz', pageName : 'login.ejs', username: req.username });
 });
+
+router.get('/auth/facebook',
+    passport.authenticate('facebook'));
+
+router.get('http://localhost:8080/auth/facebook/callback',
+    passport.authenticate('facebook', { failureRedirect: '/login' }),
+    function(req, res) {
+        // Successful authentication, redirect home.
+        res.redirect('/');
+    });
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
     console.log(res);
             res.send('/');
 });
+
+router.get('/auth/google',
+    passport.authenticate('google', { scope: 'https://www.google.com/m8/feeds' }));
+
+router.get('/auth/google/callback',
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    function(req, res) {
+        res.redirect('/');
+    });
 
 router.get('/logout', function(req, res) {
   req.logout();

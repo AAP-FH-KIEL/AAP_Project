@@ -31,9 +31,14 @@
             <td> <%= item.contractUntil %> </td>
            <td><div class="stars starrr" data-rating="0"></div>
             <span class="glyphicon .glyphicon-star-empty glyphicon-star-empty"></span>
-            <button class="btn btn-success btn-sm style" type="submit">Favourite</button></td>
+            <button id="favourited" class="btn btn-success btn-sm style" onclick="favourite()" type="submit">Favourite</button></td>
     </tr>
         <% }); %>
     </table>
 
 </div>
+<script>
+    function favourite() {
+        document.getElementById("favourited").innerHTML = "Favourited";
+    }
+</script>

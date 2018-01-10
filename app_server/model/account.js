@@ -8,22 +8,9 @@ var Account = new Schema({
         type: String,
         required: 'Kindly enter your desired username'
     },
-    password: {
-        type: String,
-        required: 'Kindly enter your desired password'
-    },
     email: {
         type: String,
         required: 'Kindly enter your first name'
-    },
-
-});
-
-var User = new Schema({
-
-    username: {
-        type: String,
-        required: 'Kindly enter your desired username'
     },
     password: {
         type: String,
@@ -34,8 +21,4 @@ var User = new Schema({
 });
 
 Account.plugin(passportLocalMongoose);
-User.plugin(passportLocalMongoose);
-
-
 module.exports = mongoose.model('Account', Account);
-module.exports = mongoose.model('User', User);
