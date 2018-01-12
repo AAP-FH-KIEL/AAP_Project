@@ -21,16 +21,9 @@ router.post('/signup', function(req, res) {
             password2: req.body.password2
         }), req.body.password, function(err, account) {
 
-
-        if(err)
-            return
-                console.log('There is an error');
-
-        // if (err)
-        //     //return res.render('signup', {account: account});
-        //     res.render('Sorry this user does not exist');
+        if (err)
+            return res.render('/', {account: account});
         passport.authenticate('local')(req, res, function() {
-            //res.send('success',' Welcome ' + username)
             res.send('/');
         })
     })
