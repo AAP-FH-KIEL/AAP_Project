@@ -1,7 +1,8 @@
 var express = require('express');
-var passport = require('passport');
+const passport = require('passport');
 var Account = require('../model/account');
-var router = express.Router();
+const router = express.Router();
+
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -15,14 +16,14 @@ router.get('/signup', function(req, res) {
 
 router.post('/signup', function(req, res) {
     Account.register(new Account({
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password,
-            password2: req.body.password2
-        }), req.body.password, function(err, account) {
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password
+    }), req.body.password, function(err, account) {
 
         if (err)
-            return res.render('/', {account: account});
+             //res.render('signup', {err: err});
+            return res.render('template', { title: 'SportsFanz', pageName : 'signup.ejs', err: err});
         passport.authenticate('local')(req, res, function() {
             res.send('/');
         })
@@ -41,26 +42,31 @@ passport.deserializeUser(function(id, done) {
 
 // login route
 router.get('/login', function(req, res) {
-    res.render('template', { title: 'SportsFanz', pageName : 'login.ejs', username: req.username });
+    res.render('template', { title: 'SportsFanz', pageName : 'login.ejs', user: req.user });
 });
 
 router.get('/auth/facebook',
     passport.authenticate('facebook'));
 
-router.get('http://localhost:8080/auth/facebook/callback',
+router.get('/auth/facebook/redirect',
     passport.authenticate('facebook', { failureRedirect: '/login' }),
     function(req, res) {
         // Successful authentication, redirect home.
         res.redirect('/');
     });
 
-router.post('/login', passport.authenticate('local'), function(req, res) {
-    console.log(res);
-            res.send('/');
-});
+// router.post('/login', passport.authenticate('local'), function(req, res) {
+//     console.log(res);
+//             res.send('/');
+// });
 
-router.get('/auth/google',
-    passport.authenticate('google', { scope: 'https://www.google.com/m8/feeds' }));
+router.get('/google',
+    passport.authenticate('google', { scope: ['profile']})
+);
+
+router.get('/google/redirect',passport.authenticate('google'), (req, res)=> {
+    res.send('You have been redirected to callback');
+});
 
 router.get('/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/login' }),

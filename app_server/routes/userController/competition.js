@@ -3,7 +3,7 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var fs = require('fs');
 var request = require('request');
-var competitionData = require('./../../data/competition.json');
+//var competitionData = require('./../../data/competition.json');
 
 var apiRoute = {
     server : "http://localhost:3000"

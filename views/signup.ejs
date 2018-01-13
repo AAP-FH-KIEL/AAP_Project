@@ -9,6 +9,30 @@
  .label-style{
      margin-left: 80px
  }
+
+ .google-logger{
+     color: #fff;
+     text-decoration: none;
+     font-size: 18px;
+     padding: 8px;
+     background-color: #ff5353;
+     margin-left:100px;
+ }
+
+ .facebook-logger{
+     color: #fff;
+     text-decoration: none;
+     font-size: 18px;
+     padding: 8px;
+     background-color: #4473FF;
+     margin-left:100px;
+
+ }
+ .login-end{
+     margin-bottom: 30px;
+ }
+
+
  .control-label{margin-bottom: 5px}
     .user-label{
         margin:5px 0;
@@ -58,15 +82,17 @@
                             </div>
 
 
-                            <div class="control-group">
+                            <div class="control-group login-end">
                                 <!-- Button -->
                                 <div class="controls label-style">
                                     <button class="btn btn-success label-style">Login</button>
                                 </div>
                             </div>
 
-                            <p class="facebook-logger"><a href="/auth/facebook">Login with FaceBook</a></p>
-                            <p class="google-logger"><a href="/auth/google">Login with Google</a></p>
+                            <a class="facebook-logger" href="/facebook">FaceBook</a>
+                            <!--<p class="google-logger"><a href="/auth/google">Login with Google</a></p>-->
+
+                            <a class="google-logger" href="/google">Google+</a>
                         </fieldset>
                     </form>
                 </div>
