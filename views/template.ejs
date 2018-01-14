@@ -2,11 +2,39 @@
 <html lang="en">
 <head>
     <% include template/header.ejs %>
+   <style>
+      body{background-color: #f5f5f5;}
+   </style>
 </head>
 <body>
 
+<div id="user">
+   <p></p>
+</div>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '175812383019874',
+            xfbml      : true,
+            version    : 'v2.11'
+        });
+        FB.AppEvents.logPageView();
+    };
 
-
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<div
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+</div>
 <% include template/navbar.ejs%>
 <!--This is the content area for all the pages-->
 <%- include(pageName) %>

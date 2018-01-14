@@ -1,32 +1,33 @@
 <style>
     .styling{
         margin-left: 50px;
+        margin-top: 0;
     }
     th, td{
         padding: 5px;
     }
 </style>
-<br/><br/><br/>
+
 <div class="row styling">
     <div class="col-md-2">
-<table border="2">
-    <tr>
-        <th></th>
-        <th>Team</th>
-        <th>P</th>
-        <th>GD</th>
-        <th>Pts</th>
-    <% data.standing.forEach(function(item) { %>
-    <tr>
-        <td><%= item.position %></td>
-        <td><%= item.teamName %></td>
-        <td> <%= item.playedGames %></td>
-        <td><%= item.goalDifference %></td>
-        <td><%= item.points %></td>
-        <td><img width="40px" height="40px" src="<%= item.crestURI %>"></td>
-    </tr>
-    <% }); %>
-</table>
+        <table border="2">
+            <tr>
+                <th></th>
+                <th>Team</th>
+                <th>P</th>
+                <th>GD</th>
+                <th>Pts</th>
+            <% data.standing.forEach(function(item) { %>
+            <tr>
+                <td><%= item.position %></td>
+                <td><%= item.teamName %></td>
+                <td> <%= item.playedGames %></td>
+                <td><%= item.goalDifference %></td>
+                <td><%= item.points %></td>
+                <td><img width="40px" height="40px" src="<%= item.crestURI %>"></td>
+            </tr>
+            <% }); %>
+        </table>
     </div>
 </div>
 <br/><br/><br/>

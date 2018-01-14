@@ -1,0 +1,58 @@
+<style>
+    html, body {
+        height: 100%
+    }
+    .wrap {
+        min-height: 100%
+        height: auto !important
+        height: 100%
+        margin: 0 auto -60px
+    }
+
+    .push, .footer{
+    height: 60px}
+
+    .footer{
+        background-color: #f5f5f5}
+</style>
+
+<div class="wrap chatArea" id="chatArea">
+    <div class="container-fluid">
+        <h1> Welcome To Chat Room</h1>
+        <div id="message">
+        </div>
+        <div class="push">
+        </div>
+    </div>
+
+</div>
+
+<div class="footer">
+    <div class="container-fluid">
+
+        <div id="row">
+            <div class=".col-xs-8.col-sm-9">
+                <input type="text" id="message-box" class="form-control input-lg" placeholder="Write your message here..." >
+            </div>
+            <div class="col-xs-4.col-sm-3">
+                <button id="send-message-btn" class="btn btn-primary btn-lg btn-block">Send Message</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(function(){
+        $("#new-pop").click(function () {
+            $('#chatArea').new-pop('popup-box-on');
+        });
+
+        $("#removeClass").click(function () {
+            $('#chatArea').removeClass('popup-box-on');
+        });
+    })
+</script>
+
+
+
